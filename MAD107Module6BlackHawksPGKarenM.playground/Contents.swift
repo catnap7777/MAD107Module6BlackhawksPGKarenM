@@ -254,10 +254,77 @@ let testVar8ValInc = players8Dictionary.sorted(by: { $0.value < $1.value })
 print("****** this is testVar8ValInc: \(String(describing: testVar8ValInc))")
 
 //****  this part is the important part!!!!!!
-let testTuplePlayers = players8Dictionary.values
+let testTuplePlayers = players8Dictionary2.values
 //let testTuplePlayersInc = testTuplePlayers.sorted(by: { $0.1 > $1.1})
-let testTuplePlayersInc = testTuplePlayers.sorted(by: { $0.name > $1.name})
+let testTuplePlayersInc = testTuplePlayers.sorted(by: { $0.name < $1.name})
 print(testTuplePlayersInc)
+
+let sortedTupleByAge = testTuplePlayers.sorted(by: {$0.age < $1.age})
+print("\n******* Sorted by Age ********\n")
+print("    AGE      NAME")
+print("    ---      ----\n")
+var counterAge = 0
+var counterA = 0
+for item in sortedTupleByAge {
+    print("\t\(item.age) | \(item.name) ")
+    counterA += 1
+    counterAge += Int(item.age) ?? 0
+}
+
+var averageAge = counterAge/counterA
+print("\nThe average age of the players is: \(averageAge)")
+
+let sortedTupleByCountry = testTuplePlayers.sorted(by: {$0.country < $1.country})
+print("\n******* Sorted by Country ********\n")
+print(" COUNTRY      NAME")
+print(" -------      ----\n")
+for item in sortedTupleByCountry {
+    print("\t\(item.country) | \(item.name) ")
+}
+var counterHeight = 0
+var counterB = 0
+var parsedInchesHeight = 0
+
+
+print(testTuplePlayers.count)
+
+for item in testTuplePlayers {
+    //print("testing out more...\(item.0)")
+    //print("testing out more...\(item.name)")
+    //var mentionedUsernames: [String] {
+    //  let parts = split(separator: "@").dropFirst()
+    
+//    var partA = (item.height).split(separator: "'").dropLast()
+//    var partB = (item.height).split(separator: "'").dropFirst()
+//    var partC = String(partA)
+    
+    print(item.height)
+    
+    
+    
+    var myStringArr = (item.height).components(separatedBy: "'")
+    var myFeet = Int(myStringArr[0]) ?? 1
+    var myInches = Int(myStringArr[1]) ??  1
+    var totalHt = (myFeet * 12) + myInches
+    
+//    var myString: String = "hello hi";
+//    var myStringArr = myString.componentsSeparatedByString(" ")
+//    var hello: String = myStringArr [0]
+//    var hi: String = myStringArr [1]
+//
+//    var myStringArr = myString.components(separatedBy: " ")
+    
+    counterB += 1
+    counterHeight += totalHt
+    
+}
+
+var averageHeightInches = counterHeight/counterB
+var averageHeightFeet = averageHeightInches/12
+var averageHeightInch = averageHeightInches % 12
+
+    
+print("\nThe average height of the players is: \(averageHeightFeet)'\(averageHeightInch)\n\n")
 
 for item in testTuplePlayersInc {
     //print("testing out more...\(item.0)")
