@@ -179,6 +179,119 @@ var players = ["DRAKE CAGGIULA": [
                 ]
             ]
 
+var players2 = ["DRAKE CAGGIULA": (number:"91",age:"25",born:"Jun 20, 1994",height:"5'10",country:"CAN"),
+                "RYAN CARPENTER": (number:"22",age:"29",born:"Jan 18, 1991",hieght:"6'0",country:"USA"),
+                "KIRBY DACH": (number:"77",age:"19",born:"Jan 21, 2001",height:"6'4",country:"CAN")
+    
+    ] as [String : AnyObject]
+
+for (k,v) in players2 {
+    print("key value pairs for number = \(k) and \(v)")
+    
+    let testvar7 = v.number
+    print(testvar7 ?? "yep, that didn't work")
+   
+    
+}
+
+//******************************************************************************************************
+//******************************************************************************************************
+
+//let foodOrdered = [["Cheese Burger", 3.00],["French Fries", 2.25],["Soft Drink", 1.00],
+//                   ["Chicken Sandwich", 3.25], ["Gyro", 4.25], ["Onion Rings", 2.25], ["Cheese Stix", 1.25]]
+
+
+var players8 = [["DRAKE CAGGIULA","91"],["RYAN CARPENTER","22"],["KIRBY DACH","77"]]
+
+var players8Dictionary = ["91": ("8","54","dec 15 1965","5.7","USA"),
+                          "92": ("2","55","dec 16 1965","5.8","USA")
+
+]
+
+var testVar8 = players8Dictionary["91"]?.2
+
+print("****** this is testVar8: \(String(describing: testVar8))")
+
+//let dictValInc = dict.sorted(by: { $0.value < $1.value })
+let testVar8ValInc = players8Dictionary.sorted(by: { $0.value < $1.value })
+print("****** this is testVar8ValInc: \(String(describing: testVar8ValInc))")
+
+let testTuplePlayers = players8Dictionary.values
+let testTuplePlayersInc = testTuplePlayers.sorted(by: { $0.1 > $1.1})
+print(testTuplePlayersInc)
+
+for item in testTuplePlayersInc {
+    print("testing out more...\(item.0)")
+    
+}
+
+//Array of Tuples
+let tupleArray = [("A", 123), ("B", 789), ("C", 567), ("D", 432)]
+let tupleArrayInc = tupleArray.sorted(by: { $0.1 < $1.1 })
+print(tupleArrayInc)
+
+//******************************************************************************************************
+//******************************************************************************************************
+
+//var Name: String = "kam"
+//
+//var players3 = [Name:(number:String, age:String, born:String, height:String, country:String).self] =
+//    [   .Ryan:("001","30","Dec 15, 1965", "5'7", "USA")]
+//
+//var myObject = (number:String,age:String, born:String, height:String, country:String).self
+//var players4 = [Name:myObject]
+//var dic3 = [String:MyObject]()
+
+//players4["karen"] = ("1","54","dec 15 1965","5.7","USA")
+
+//players4 = [.kam:("1","54","dec 15 1965","5.7","USA")]
+
+
+
+//private let positionDictionary:[Position:(shortG: String, longG: String, shortE: String, longE: String)] =
+//    [   .Goalkeeper:("TW","Torwart","GK","Goalkeeper"),
+//        .CentralDefender:("IV","Innenverteidiger","CD","Central Defender"),
+//        .LeftBack:("LV","Linker Verteidiger","LB","Left Back"),
+//        .LeftWingBack:("LAV","Linker Außenverteidiger","LWB","Left Wing Back"),
+//        .RightBack:("RV","Rechter Verteidiger","RB","Right Back"),
+//        .RightWingBack:("RAV","Rechter Außenverteidiger","RWB","Right Wing Back")]
+
+var playersArray = players2
+//var playersArray = players.sorted(by: <#T##((key: String, value: [String : String]), (key: String, value: [String : String])) throws -> Bool#>)
+
+//print(playersArray)
+//
+//var testVar = players2["RYAN CARPENTER"]
+//print("\n**************** this is my test variable \(testVar!)")
+//print("\n")
+//var testVar2 = testVar.number
+
+
+//for (k,v) in (Array(playersArray).sorted {$0.0.1 < $1.0.0}) {
+//    println("\(k):\(v)")
+//}
+
+//let applied = playersArray.map{ "num:\($0)"}
+let applied = playersArray.map{ "\($0)"}
+print("\n\(applied)")
+
+print("\n")
+
+for (k,v) in playersArray {
+    print("this is the key: \(k) ... and this is it's value: \(v)")
+}
+
+//
+//Hoffman, Jon. Mastering Swift 4 - Fourth Edition: An in-depth and comprehensive guide to modern programming techniques with Swift (p. 75). Packt Publishing. Kindle Edition.
+
+//var testArray = players.sorted{,<#arg#> $0.key < $0.key}
+//print(testArray)
+
+//
+//var test2 = players2["DRAKE CAGGIULA"]?[number]
+
+//var birthdays: [String] = ["5"]
+
 //    let userScheduleArray = players.sorted{$0.key < $0.key}
 //
 //print(userScheduleArray)
@@ -187,8 +300,8 @@ var players = ["DRAKE CAGGIULA": [
 //
 //print(playerNumber[0][0]
 
-var test = players["MALCOLM SUBBAN"]?["age"]
+//var test = players["MALCOLM SUBBAN"]?["age"]
 
 
-print(test)
+//print(test)
 
