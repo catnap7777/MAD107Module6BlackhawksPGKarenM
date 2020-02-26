@@ -179,3 +179,16 @@ var players = ["DRAKE CAGGIULA": [
                 ]
             ]
 
+//    let userScheduleArray = players.sorted{$0.key < $0.key}
+//
+//print(userScheduleArray)
+
+//var playerNumber: [String][String] = players.numbers, players.age
+//
+//print(playerNumber[0][0]
+
+var test = players["MALCOLM SUBBAN"]?["age"]
+
+
+print(test)
+
