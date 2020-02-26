@@ -205,18 +205,18 @@ var str = "Hello, playground"
 //                   ["Chicken Sandwich", 3.25], ["Gyro", 4.25], ["Onion Rings", 2.25], ["Cheese Stix", 1.25]]
 
 
-var players8 = [["DRAKE CAGGIULA","91"],["RYAN CARPENTER","22"],["KIRBY DACH","77"]]
+//var players8 = [["DRAKE CAGGIULA","91"],["RYAN CARPENTER","22"],["KIRBY DACH","77"]]
 
 //var players8Dictionary = ["91": ("8","54","dec 15 1965","5.7","USA"),
 //                          "92": ("2","55","dec 16 1965","5.8","USA")
 //]
 
-var players8Dictionary = ["91": (name:"DRAKE",age:"54",bday:"dec 15 1965",ht:"5.7",country:"USA"),
-                          "92": (name:"JOSH",age:"55",bday:"dec 16 1965",ht:"5.8",country:"USA"),
-                          "93": (name:"ALMA",age:"55",bday:"dec 16 1965",ht:"5.8",country:"USA")
-]
+//var players8Dictionary = ["91": (name:"DRAKE",age:"54",bday:"dec 15 1965",ht:"5.7",country:"USA"),
+//                          "92": (name:"JOSH",age:"55",bday:"dec 16 1965",ht:"5.8",country:"USA"),
+//                          "93": (name:"ALMA",age:"55",bday:"dec 16 1965",ht:"5.8",country:"USA")
+//]
 
-var players8Dictionary2 = ["91": (name:"DRAKE CAGGIULA",age:"25",bday:"Jun 20, 1994",height:"5'10",country:"CAN"),
+var playersDictionary = ["91": (name:"DRAKE CAGGIULA",age:"25",bday:"Jun 20, 1994",height:"5'10",country:"CAN"),
                           "22": (name:"RYAN CARPENTER",age:"29",bday:"Jan 18, 1991",height:"6'0",country:"USA"),
                           "77": (name:"KIRBY DACH",age:"19",bday:"Jan 21, 2001",height:"6'4",country:"CAN"),
                           "12": (name:"ALEX DEBRINCAT",age:"22",bday:"Dec 18, 1997",height:"5'7",country:"USA"),
@@ -245,16 +245,21 @@ var players8Dictionary2 = ["91": (name:"DRAKE CAGGIULA",age:"25",bday:"Jun 20, 1
 
 
 
-var testVar8 = players8Dictionary2["91"]?.2
-
-print("****** this is testVar8: \(String(describing: testVar8))")
+//var testVar = playersDictionary2["91"]?.2
+//print("****** this is testVar: \(String(describing: testVar))")
 
 //let dictValInc = dict.sorted(by: { $0.value < $1.value })
-let testVar8ValInc = players8Dictionary.sorted(by: { $0.value < $1.value })
-print("****** this is testVar8ValInc: \(String(describing: testVar8ValInc))")
+let testVar8ValInc = playersDictionary.sorted(by: { $0.value.name < $1.value.name })
+
+for (k,v) in testVar8ValInc where v.country == "USA" {
+    print("\n******* \(v.name) is number \(k) and is \(v.height) tall")
+}
+//print("@@@@@@@@@@@@****** this is testVar8ValInc: \(String(describing: testVar8ValInc))")
+//print("\n@@@@@@@@@@@@****** this is testVar8ValInc: \(testVar8ValInc))")
+
 
 //****  this part is the important part!!!!!!
-let testTuplePlayers = players8Dictionary2.values
+let testTuplePlayers = playersDictionary.values
 //let testTuplePlayersInc = testTuplePlayers.sorted(by: { $0.1 > $1.1})
 let testTuplePlayersInc = testTuplePlayers.sorted(by: { $0.name < $1.name})
 print(testTuplePlayersInc)
