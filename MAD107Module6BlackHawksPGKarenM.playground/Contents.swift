@@ -197,7 +197,7 @@ var highestVal = monthDictionary.values.max()
 var monthArray = [[String]]()
 
 //print(highestVal!)
-print("\nThe months with the highest number of birthdays at \(highestVal!) is: \n")
+print("\nThe months with the highest number of birthdays ✨at \(highestVal!)✨ is: \n")
 
 for (k,v) in monthDictionary where v == highestVal {
     monthArray.append([k, String(v)])
