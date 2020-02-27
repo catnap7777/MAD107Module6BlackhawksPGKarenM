@@ -2,6 +2,7 @@ import Cocoa
 
 var str = "Hello, playground"
 
+//.. Player Dictionary
 
 var playersDictionary = ["91": (name:"DRAKE CAGGIULA",age:"25",bday:"Jun 20, 1994",height:"5'10",country:"CAN"),
                           "22": (name:"RYAN CARPENTER",age:"29",bday:"Jan 18, 1991",height:"6'0",country:"USA"),
@@ -40,19 +41,21 @@ for (k,v) in testVar8ValInc where v.country == "USA" {
 }
 
 print("***************************** Sort by Age *****************************************\n")
-//****  this part is the important part!!!!!!
-let testTuplePlayers = playersDictionary.values
-//let testTuplePlayersInc = testTuplePlayers.sorted(by: { $0.1 > $1.1})
-let testTuplePlayersInc = testTuplePlayers.sorted(by: { $0.name < $1.name})
-print(testTuplePlayersInc)
 
-let sortedTupleByAge = testTuplePlayers.sorted(by: {$0.age < $1.age})
+//let sortedPlayerDictionaryAge = playersDictionary.sorted(by: {$0.value.age < $1.value.age})
+
+//****  this part is the important part!!!!!!
+let playersTuple = playersDictionary.values
+
+let sortedTupleByAge = playersTuple.sorted(by: {$0.age < $1.age})
 print("\n******* Sorted by Age ********\n")
 print("    AGE      NAME")
 print("    ---      ----\n")
 var counterAge = 0
 var counterA = 0
 for item in sortedTupleByAge {
+//for item in sortedPlayerDictionaryAge {
+    //print("\t\(item.value.age) | \(item.value.name) ")
     print("\t\(item.age) | \(item.name) ")
     counterA += 1
     counterAge += Int(item.age) ?? 0
@@ -62,12 +65,17 @@ var averageAge = counterAge/counterA
 print("\nThe average age of the players is: \(averageAge)")
 
 print("***************************** Sort by Country *****************************************\n")
-let sortedTupleByCountry = testTuplePlayers.sorted(by: {$0.country < $1.country})
+
+//let sortedPlayerDictionaryCountry = playersDictionary.sorted(by: {$0.value.country < $1.value.country})
+let sortedTupleByCountry = playersTuple.sorted(by: {$0.country < $1.country})
+
 print("\n******* Sorted by Country ********\n")
 print(" COUNTRY      NAME")
 print(" -------      ----\n")
 
 for item in sortedTupleByCountry {
+//for item in sortedPlayerDictionaryCountry {
+    //print("\t\(item.value.country) | \(item.value.name) ")
     print("\t\(item.country) | \(item.name) ")
 }
 
@@ -77,26 +85,20 @@ var counterB = 0
 var parsedInchesHeight = 0
 
 
-print(testTuplePlayers.count)
+print(playersTuple.count)
+//print(playersDictionary.count)
 
-for item in testTuplePlayers {
-    //print("testing out more...\(item.0)")
-    //print("testing out more...\(item.name)")
-    //var mentionedUsernames: [String] {
-    //  let parts = split(separator: "@").dropFirst()
-    
-//    var partA = (item.height).split(separator: "'").dropLast()
-//    var partB = (item.height).split(separator: "'").dropFirst()
-//    var partC = String(partA)
+for item in playersTuple {
+//for item in playersDictionary {
     
     print(item.height)
-    
-    
+    //print(item.value.height)
     
     var myStringArr = (item.height).components(separatedBy: "'")
+    //var myStringArr = (item.value.height).components(separatedBy: "'")
     var myFeet = Int(myStringArr[0]) ?? 1
     var myInches = Int(myStringArr[1]) ??  1
-    var totalHt = (myFeet * 12) + myInches
+    var myTotalHt = (myFeet * 12) + myInches
     
 //    var myString: String = "hello hi";
 //    var myStringArr = myString.componentsSeparatedByString(" ")
@@ -106,18 +108,17 @@ for item in testTuplePlayers {
 //    var myStringArr = myString.components(separatedBy: " ")
     
     counterB += 1
-    counterHeight += totalHt
+    counterHeight += myTotalHt
     
 }
 
-var averageHeightInches = counterHeight/counterB
-var averageHeightFeet = averageHeightInches/12
-var averageHeightInch = averageHeightInches % 12
+var totalAverageHeightInches = counterHeight/counterB
+var averageHeightFeet = totalAverageHeightInches/12
+var averageHeightInch = totalAverageHeightInches % 12
 
     
 print("\nThe average height of the players is: \(averageHeightFeet)'\(averageHeightInch)\n\n")
 
-//************ birthday month
 print("***************************** Months that have Players with the Most Birthdays *****************************************\n")
 
 var january = 0
@@ -133,11 +134,11 @@ var october = 0
 var november = 0
 var december = 0
 
-
-
-for item in testTuplePlayers {
+for item in playersTuple {
+//for item in playersDictionary {
     //print("testing out more...\(item.0)")
     //print("testing out more...\(item.name)")
+    //...next part with dropxxxx doesn't work
     //var mentionedUsernames: [String] {
     //  let parts = split(separator: "@").dropFirst()
     
@@ -146,9 +147,10 @@ for item in testTuplePlayers {
     //    var partC = String(partA)
     
     print(item.bday)
-    
+    //print(item.value.bday)
     
     var myStringArrBday = (item.bday).components(separatedBy: " ")
+    //var myStringArrBday = (item.value.bday).components(separatedBy: " ")
     var myMonth = String(myStringArrBday[0])
     
     switch myMonth {
@@ -180,81 +182,24 @@ for item in testTuplePlayers {
         print("uh oh")
     }
     
-//
-//    var myFeet = Int(myStringArr[0]) ?? 1
-//    var myInches = Int(myStringArr[1]) ??  1
-//    var totalHt = (myFeet * 12) + myInches
-    
-    //    var myString: String = "hello hi";
-    //    var myStringArr = myString.componentsSeparatedByString(" ")
-    //    var hello: String = myStringArr [0]
-    //    var hi: String = myStringArr [1]
-    //
-    //    var myStringArr = myString.components(separatedBy: " ")
-    
-//    counterB += 1
-//    counterHeight += totalHt
-//
 }
 
-//let testTuplePlayers = players8Dictionary2.values
-////let testTuplePlayersInc = testTuplePlayers.sorted(by: { $0.1 > $1.1})
-//let testTuplePlayersInc = testTuplePlayers.sorted(by: { $0.name < $1.name})
-//print(testTuplePlayersInc)
-//
-//let sortedTupleByAge = testTuplePlayers.sorted(by: {$0.age < $1.age})
 
-//.. dictionary
-var anotherTestTuple = ["January": january, "February": february, "March": march, "April": april, "May": may, "June": june, "July": july, "August":                                                         august, "September": september, "October": october, "November": november, "December": december]
+//.. dictionary of month names and totals that were calculated
+var monthDictionary = ["January": january, "February": february, "March": march, "April": april, "May": may, "June": june, "July": july, "August":                                                         august, "September": september, "October": october, "November": november, "December": december]
 
-//let kam1 = anotherTestTuple.values
-//var sortedAnotherTestTuple = kam1.sorted(by: {$0 < $1})
-//var sortedAnotherTestTuple = anotherTestTuple.sorted(by: {$0 < $1})
+var highestVal = monthDictionary.values.max()
 
-var highestVal = anotherTestTuple.values.max()
-
-var kamArray = [[String]]()
-
+var monthArray = [[String]]()
 
 print(highestVal!)
 print("\nThe months with the highest number of birthdays is: ")
 
-for (k,v) in anotherTestTuple where v == highestVal{
-    
-    kamArray.append([k, String(v)])
-    
+for (k,v) in monthDictionary where v == highestVal {
+    monthArray.append([k, String(v)])
 }
 
-kamArray.sort(by: {$0[0] < $1[0]})
+monthArray.sort(by: {$0[0] < $1[0]})
 
-print(kamArray)
-
-//print("\t\t\(k) - \(v) birthdays")
-
-//var sortedAnotherTestTuple = anotherTestTuple.sorted(by: {$0.1 < $1.1})
-//
-//for (k,v) in sortedAnotherTestTuple {
-//   //
-//}
-
-
-//print(sortedAnotherTestTuple)
-
-//print("january totals: \(anotherTestTuple.January)")
-//print("february totals: \(anotherTestTuple.February)")
-
-//var averageHeightInches = counterHeight/counterB
-//var averageHeightFeet = averageHeightInches/12
-//var averageHeightInch = averageHeightInches % 12
-
-
-//print("\nThe month with the most birthdays is: ****** \n\n")
-
-//
-//for item in testTuplePlayersInc {
-//    //print("testing out more...\(item.0)")
-//    print("testing out more...\(item.name)")
-//    
-//}
-//
+print(monthArray)
 
