@@ -3,7 +3,6 @@ import Cocoa
 var str = "Hello, playground"
 
 //.. Player Dictionary
-
 var playersDictionary = ["91": (name:"DRAKE CAGGIULA",age:"25",bday:"Jun 20, 1994",height:"5'10",country:"CAN"),
                           "22": (name:"RYAN CARPENTER",age:"29",bday:"Jan 18, 1991",height:"6'0",country:"USA"),
                           "77": (name:"KIRBY DACH",age:"19",bday:"Jan 21, 2001",height:"6'4",country:"CAN"),
@@ -63,7 +62,7 @@ func sortByAge() {
         counterAge += Int(item.age) ?? 0
     }
     
-    var averageAge = counterAge/counterA
+    let averageAge = counterAge/counterA
     print("\nThe average age of the players is: \(averageAge)")
 }
 //..***************************************************************************************************************************************
@@ -97,8 +96,6 @@ func getAvgHeight() {
     print("\n\n***************************** Average Height of Players *****************************************\n")
     var counterHeight = 0
     var counterB = 0
-    var parsedInchesHeight = 0
-    
     
     //print(playersTuple.count)
     //print(playersDictionary.count)
@@ -113,9 +110,9 @@ func getAvgHeight() {
         
         var myStringArr = (item.height).components(separatedBy: "'")
         //var myStringArr = (item.value.height).components(separatedBy: "'")
-        var myFeet = Int(myStringArr[0]) ?? 1
-        var myInches = Int(myStringArr[1]) ??  1
-        var myTotalHt = (myFeet * 12) + myInches
+        let myFeet = Int(myStringArr[0]) ?? 1
+        let myInches = Int(myStringArr[1]) ??  1
+        let myTotalHt = (myFeet * 12) + myInches
         
         //    var myString: String = "hello hi";
         //    var myStringArr = myString.componentsSeparatedByString(" ")
@@ -129,9 +126,9 @@ func getAvgHeight() {
         
     }
     
-    var totalAverageHeightInches = counterHeight/counterB
-    var averageHeightFeet = totalAverageHeightInches/12
-    var averageHeightInch = totalAverageHeightInches % 12
+    let totalAverageHeightInches = counterHeight/counterB
+    let averageHeightFeet = totalAverageHeightInches/12
+    let averageHeightInch = totalAverageHeightInches % 12
     
     
     print("\nThe average height of the players is: \(averageHeightFeet)'\(averageHeightInch)\n\n")
@@ -180,7 +177,7 @@ func monthsWithMostBdays() {
         
         var myStringArrBday = (item.bday).components(separatedBy: " ")
         //var myStringArrBday = (item.value.bday).components(separatedBy: " ")
-        var myMonth = String(myStringArrBday[0])
+        let myMonth = String(myStringArrBday[0])
         
         switch myMonth {
         case "Jan":
@@ -217,7 +214,7 @@ func monthsWithMostBdays() {
     //.. dictionary of month names and totals that were calculated
     var monthDictionary = ["January": january, "February": february, "March": march, "April": april, "May": may, "June": june, "July": july, "August":                                                         august, "September": september, "October": october, "November": november, "December": december]
     
-    var highestVal = monthDictionary.values.max()
+    let highestVal = monthDictionary.values.max()
     
     var monthArray = [[String]]()
     
