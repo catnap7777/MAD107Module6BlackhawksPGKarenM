@@ -34,11 +34,11 @@ var playersDictionary = ["91": (name:"DRAKE CAGGIULA",age:"25",bday:"Jun 20, 199
 
 
 //let dictValInc = dict.sorted(by: { $0.value < $1.value })
-let testVar8ValInc = playersDictionary.sorted(by: { $0.value.name < $1.value.name })
-
-for (k,v) in testVar8ValInc where v.country == "USA" {
-    print("\n******* \(v.name) is number \(k) and is \(v.height) tall")
-}
+//let testVar8ValInc = playersDictionary.sorted(by: { $0.value.name < $1.value.name })
+//
+//for (k,v) in testVar8ValInc where v.country == "USA" {
+//    print("\n******* \(v.name) is number \(k) and is \(v.height) tall")
+//}
 
 print("***************************** Sort by Age *****************************************\n")
 
@@ -49,8 +49,8 @@ let playersTuple = playersDictionary.values
 
 let sortedTupleByAge = playersTuple.sorted(by: {$0.age < $1.age})
 print("\n******* Sorted by Age ********\n")
-print("    AGE      NAME")
-print("    ---      ----\n")
+print("    AGE    PLAYER NAME")
+print("    ---    -----------\n")
 var counterAge = 0
 var counterA = 0
 for item in sortedTupleByAge {
@@ -64,14 +64,14 @@ for item in sortedTupleByAge {
 var averageAge = counterAge/counterA
 print("\nThe average age of the players is: \(averageAge)")
 
-print("***************************** Sort by Country *****************************************\n")
+print("\n\n***************************** Sort by Country *****************************************\n")
 
 //let sortedPlayerDictionaryCountry = playersDictionary.sorted(by: {$0.value.country < $1.value.country})
 let sortedTupleByCountry = playersTuple.sorted(by: {$0.country < $1.country})
 
 print("\n******* Sorted by Country ********\n")
-print(" COUNTRY      NAME")
-print(" -------      ----\n")
+print(" COUNTRY    PLAYER NAME")
+print(" ------     -----------\n")
 
 for item in sortedTupleByCountry {
 //for item in sortedPlayerDictionaryCountry {
@@ -79,14 +79,16 @@ for item in sortedTupleByCountry {
     print("\t\(item.country) | \(item.name) ")
 }
 
-print("***************************** Average Height of Players *****************************************\n")
+print("\n\n***************************** Average Height of Players *****************************************\n")
 var counterHeight = 0
 var counterB = 0
 var parsedInchesHeight = 0
 
 
-print(playersTuple.count)
+//print(playersTuple.count)
 //print(playersDictionary.count)
+
+print("\n******* Player Heights ********\n")
 
 for item in playersTuple {
 //for item in playersDictionary {
@@ -133,6 +135,8 @@ var september = 0
 var october = 0
 var november = 0
 var december = 0
+
+print("\n******* Player Birthdays ********\n")
 
 for item in playersTuple {
 //for item in playersDictionary {
@@ -192,7 +196,7 @@ var highestVal = monthDictionary.values.max()
 
 var monthArray = [[String]]()
 
-print(highestVal!)
+//print(highestVal!)
 print("\nThe months with the highest number of birthdays is: ")
 
 for (k,v) in monthDictionary where v == highestVal {
@@ -201,5 +205,9 @@ for (k,v) in monthDictionary where v == highestVal {
 
 monthArray.sort(by: {$0[0] < $1[0]})
 
-print(monthArray)
+//print(monthArray)
+
+for item in monthArray {
+    print("\t\t\(monthArray[item].[0]) - number of birthdays = \(item.monthArray[1])")
+}
 
